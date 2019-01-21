@@ -26,13 +26,13 @@ The diagram below shows the customization of our model with respect to the probl
 
 ## Next Steps
 
-Go to [Lab 1: Introduction to Factorization Machines](https://github.com/skrinak/recommendationEngine/tree/master/Lab1%20-%20Introduction%20to%20Factorization%20Machines) 
+Go to [Lab 1: Introduction to Factorization Machines](Lab1%20-%20Introduction%20to%20Factorization%20Machines) 
 
 The first lab contains essential instructions for setting up your SageMaker environment so you can easily work with the Jupyter notebooks that have been provided. Importantly, we setup an end-to-end test system so you can see how your solution works in serverless production. 
 
 The recommended approach to this workshop is to take time to carefully read and understand the theory behind each approach. When you feel comfortable with the concepts execute the notebook code step by step taking care to understand the impact of each statement. 
 
-When you've completed Lab 1, please move on [Lab 2: Introduction to Object2Vec](https://github.com/skrinak/recommendationEngine/tree/master/Lab2%20-%20Introduction%20to%20Object2Vec) . 
+When you've completed Lab 1, please move on [Lab 2: Introduction to Object2Vec](Lab2%20-%20Introduction%20to%20Object2Vec). 
 
 ## Follow Up
 

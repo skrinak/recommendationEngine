@@ -108,8 +108,8 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 1. Open the [MXNet Deep Matrix Factorization Notebook](MXNet_Deep_Matrix_Factorization.ipynb) Take your time and read the theoretical descriptions and examine the code before proceeding to the next steps.
 
-1. Now move on to [Lab 2: Introduction to Object2Vec]("../Lab2 - Introduction to Object2Vec/README.md"). 
+1. Now move on to [Lab 2: Introduction to Object2Vec](../Lab2\ -\ Introduction\ to\ Object2Vec). 
 
 ## Clean Up!
-**If you are not moving on the Lab 2** please clean up to avoid unnecessary charges. Cleanup instructions are found at the end of [Lab 2: Introduction to Object2Vec]("../Lab2 - Introduction to Object2Vec/README.md"). 
+**If you are not moving on the Lab 2** please clean up to avoid unnecessary charges. Cleanup instructions are found at the end of [Lab 2: Introduction to Object2Vec](../Lab2%20-%20Introduction%20to%20Object2Vec). 
 

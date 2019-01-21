@@ -36,7 +36,7 @@ When you've completed Lab 1, please move on [Lab 2: Introduction to Object2Vec](
 
 ## Follow Up
 
-Dont' leave this workshop without cleaning up! There are detailed instructions at the end of [Lab 2: Introduction to Object2Vec](../Lab2%20-%20Introduction%20to%20Object2Vec)
+Dont' leave this workshop without cleaning up! There are detailed instructions at the end of [Lab 2: Introduction to Object2Vec](Lab2\ -\ Introduction\ to\ Object2Vec)
 
 Matrix factorization is a simple approach that is valid for a large number of use cases and is frequently part of a pipeline of larger solutions. ObjectToVec is a powerful approach to datasets with a large number of features. 
 

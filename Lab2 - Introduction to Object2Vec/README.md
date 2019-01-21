@@ -21,7 +21,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 	Don't be alarmed by red log messages while training your model. SageMaker prints ordinary log messages in red. Wall time for training takes about 4 minutes per model. **Do not proceed to the nest step until the notebook has fully completed and each cell has run.**
 
-	When training is complete you can get the full path to your newly trained model from the notebook in the next cell. The model name is embedded in the s3 URL. You'll need the name of your model for subsequent steps. Make a copy now. Your model name looks like ```object2vec-2019-01-10-20-54-13-705```.
+	When the notebook is completed successfully, go to the [SageMaker console](https://console.aws.amazon.com/sagemaker) and nagivate to **Models** as well as **Endpoints** sections to take a look at the models and enpoints created by the notebook.
 
 1. Go to the IAM console, let's create the Lambda execution role. This role is for our Lambda functions to have sufficient permissions to perform tasks such as getting objects from S3 and invoking an endpoint that is deployed in SageMaker.
 
@@ -40,7 +40,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
         - Name: **Recommendation_Engine_Object2Vec** 
         - Rumitime: **Python 3.6**
         - Role: **Choose an existing role**
-        - Existing role: Lambda Execution Role created in Lab 1
+        - Existing role: Enter the Lambda Execution Role created in the previous step.
     - Click on the **Create function** button.
 
 1. Open [lambda_function_rec_engine.py](lambda_function_rec_engine.py) and paste the code into Function code section of the Lambda console. 
@@ -53,10 +53,10 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     - The first environment variable with the following specifications:
         - Key: **ENDPOINT_NANE_RATING**
-        - Value: name of the endpoint for the rating model. It looks like ```object2vec-2019-01-10-20-54-13-705``` 
+        - Value: **ratingModel** 
     - The second environment variable with the following specifications:
         - Key: **ENDPOINT_NANE_REC**
-        - Value: name of the endpoint for the recommendation model. It looks like ```object2vec-2019-01-10-20-42-07-341```
+        - Value: **recommendationModel**
     
     You can find name of your model endpoints on SageMaker console under **Inference** -> **Endpoints** as shown in the following screenshot. Alternatively, you can find them on the notebook you ran to create them. How to know which model is for rating and which for recommendation? Look at the time stamp. Rating model is created first so the date stamp should be earlier for the rating model. 
 
@@ -85,10 +85,14 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
  Next, we will utilize the recommendation model to explore embeddings. We will retrieve a movie in the embedding space since Object2Vec transforms user and movie IDs into embeddings as part of training process. We expect that similar movies should be close-by in the embedding space. You will be creating another Lambda function to find a nearest-neighbor of a given movie ID calling the endpoint of recommendation model we developed in the previous steps. 
 
-1. First, we are going to transfer 2 dataset files to s3 bucket. Open Terminal on the SageMaker instance and run the following command:
+1. First, we are going to transfer 2 dataset files to s3 bucket. Open Terminal on the SageMaker instance. See where to find the terminal in the following screenshot. 
+
+    ![SageMaker console4](images/notebook-instance4.jpg)
+
+    Run the following command. Make sure to replace ```your-bucket-name``` with the bucket you created in the previous steps.
 
     ```
-    cd SageMaker/recommendationEngine/Lab\ 2\ -\ Introduction\ to\ Object2Vec/
+    cd SageMaker/recommendationEngine/Lab2\ -\ Introduction\ to\ Object2Vec/
 
     aws s3api put-object --bucket your-bucket-name --key object2vec/movielens/ml-100k/ua.base --body ml-100k/ua.base --region us-west-2
 
@@ -101,12 +105,12 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
         - Name: **Movie_Retrieval_Object2Vec** 
         - Rumitime: **Python 3.6**
         - Role: **Choose an existing role**
-        - Existing role: Lambda Execution Role created in Lab 1
+        - Existing role: Enter the Lambda Execution Role created in the previous step.
     - Click on the **Create function** button.
     - Copy the code from [lambda_function_movie_retrieval.py](lambda_function_movie_retrieval.py) and paste it into Function code section of the newly created Lambda function. 
     - Create  environment variable with the following specifications:
         - Key: **ENDPOINT_NANE**
-        - Value: name of the endpoint for the recommendation model. It looks like ```object2vec-2019-01-10-20-42-07-341```
+        - Value: **ratingModel**
 
 1. Set the **Basic settings with the following values:
 
@@ -115,7 +119,13 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Lambda console6](images/lambda-console-6.jpg)
 
-1. This Lambda function uses 2 Lambda Layers. One for jsonlines library and another for numpy library. We will go step by step. First, we will create jsonline layer by clicking on **Create layer** button on upper right corner. 
+1. This Lambda function uses 2 Lambda Layers. One for jsonlines library and another for numpy library. We will go step by step. 
+
+    First, download **jsonlines_Layers.zip** from the SageMaker notebook instance.
+
+    ![SageMaker console5](images/notebook-instance5.jpg) 
+    
+    We will create jsonline layer by clicking on **Create layer** button on upper right corner. 
 
     ![Lambda layer1](images/lambda-layer-1.jpg)
 

@@ -17,9 +17,9 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 1. If you have already completed Steps 1 through 5 from the "Lab 1 - Introduction to Factorization Machines" section of this workshop, please proceed to step 2. Otherwise, go to [Lab 1 - Recommendation-Engine-Workshop/Introduction to Factorization Machines](../Lab1%20-%20Introduction%20to%20Factorization%20Machines) and complete the 5 steps required to setup SageMaker and add the required IAM roles and policies. Also, this workshop assumes all SageMaker instances and S3 buckets are in the Oregon region: us-west-2.
 
-1. Open the notebook, **object2vec_movie_recommendation.ipynb** in this directory. Examine, understand, and run each cell and return to these instructions. 
+1. Open the notebook, [object2vec_movie_recommendation.ipynb](object2vec_movie_recommendation.ipynb) in this directory. Examine, understand, and run each cell and return to these instructions. 
 
-	Don't be alarmed by red log messages while training your model. SageMaker prints ordinary log messages in red. Wall time for training takes about 4 minutes per model. **Do not proceed to the nest step until the notebook has fully completed and each cell has run.**
+	Don't be alarmed by red log messages while training your model. SageMaker prints ordinary log messages in red. Wall time for training takes about 4 minutes per model. **Do not proceed to the next step until the notebook has fully completed and each cell has run.**
 
 	When training is complete you can get the full path to your newly trained model from the notebook in the next cell. The model name is embedded in the s3 URL. You'll need the name of your model for subsequent steps. Make a copy now. Your model name looks like ```object2vec-2019-01-10-20-54-13-705```.
 
@@ -169,5 +169,8 @@ After you have completed the workshop you can delete all of the resources that w
 1. Delete the Sagemaker notebook instance.
 1. Delete the S3 Buckets you created. 
 
+## Personalize
 
+[AWS Personalize](https://aws.amazon.com/personalize/) is an AWS managed service that performs a lot of the work you've performed here for you. It's often the perfect solution to your recommendation problems. Please take quick a look at a simple implementation of the MovieLens dataset recommender using this exciting new service: 
 
+[AWS Personalize Video Recommendations](http://www.personalisevideorecs.info/recommend/)

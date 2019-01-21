@@ -1,6 +1,6 @@
 # Introduction to Factorization Machines
 
-In this workshop you will develop a recommendation engine using Apache MXNet and deep matrix factorization. The dataset is from the MovieLens site (https://movielens.org/), and is comprised of movie ratings. 
+In this workshop you will develop a recommendation engine using Apache MXNet and deep matrix factorization. The dataset is from the MovieLens site (https://movielens.org/), and is comprised of movie ratings and Netflix user preferences. 
 
 ## Prerequisites
 ### AWS Account
@@ -76,13 +76,13 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     It takes about 3 minutes for a SageMaker notebook instance to provision. During this time you'll see the status *Pending*.
 
-1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's createan S3 bucket with a globally-unique name, such as: ```rec-eingine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Oregon: ```us-west-2```.
+1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's create an S3 bucket with a globally-unique name, such as: ```rec-engine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Oregon: ```us-west-2```.
 
     This bucket is necessary to store the training data and models you're creating in this workshop. Take note of the region. SageMaker must be run in the same region as your newly created S3 bucket. If for any reason you choose an alternate region simply ensure that SageMaker runs in the same region as your newly created bucket.
 
 1. Setup IAM roles and attach policies
 
-    We need to add rights to our newly-created SageMaker role and create a new role for Lambda funcitions that will invoke model endpoints.  We'll be using 2 policies, ```LambdaFullAccess```, and ```S3FullAccess```. These permissions are required in the notebook as we will be uploading objects to S3 and creatingLambda functions. *Note: These are highly permissive settings which are suitable for this workshop, however, far too broad for commercial production.*
+    We need to add rights to our newly-created SageMaker role and create a new role for Lambda functions that will invoke model endpoints.  We'll be using 2 policies, ```LambdaFullAccess```, and ```S3FullAccess```. These permissions are required in the notebook as we will be uploading objects to S3 and creatingLambda functions. *Note: These are highly permissive settings which are suitable for this workshop, however, far too broad for commercial production.*
 
     ![SageMaker IAM](images/sagemaker-iam.jpg)
 
@@ -104,7 +104,6 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     - Click on Create role.
     - Return to the SageMaker console.
 
-1. By now the
- notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
+1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
 
- 1. Go to the *Recommendation-Workshop/Lab1 - Introduction to Factorization Machines* folder and open the notebook called, **Facorization-Machines.ipynb**. Take a moment to read the instructions and examine the code before proceeding to the next steps.
+1. Open the [MXNet Deep Matrix Factorization Notebook](MXNet_Deep_Matrix_Factorization.ipynb) Take your time and read the theoretical descriptions and examine the code before proceeding to the next steps.

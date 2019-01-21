@@ -26,14 +26,20 @@ The diagram below shows the customization of our model with respect to the probl
 
 ## Next Steps
 
-[Lab 1](https:/lab1) contains essential instructions for setting up your SageMaker environment so you can easily work with the Jupyter notebooks that have been provided. 
+Go to [Lab 1: Introduction to Factorization Machines](https://github.com/skrinak/recommendationEngine/tree/master/Lab1%20-%20Introduction%20to%20Factorization%20Machines) 
 
-The recommended approach to this workshop is to take time to carefully read and understand the theory behind each approach. Matrix factorization is a simple approach that is valid for a large number of use cases and is frequently part of a pipeline of larger solutions. ObjectToVec is a powerful approach to datasets with a large number of features. 
+The first lab contains essential instructions for setting up your SageMaker environment so you can easily work with the Jupyter notebooks that have been provided. Importantly, we setup an end-to-end test system so you can see how your solution works in serverless production. 
 
-Of course there are many other ways to find similarities in your datasets and pair your customers with products. Participants are encouraged to explore shallow learning techniques such as [TSNE](t-distributed Stochastic Neighbor Embedding), [AgglomerativeClustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and [K-Means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html). 
+The recommended approach to this workshop is to take time to carefully read and understand the theory behind each approach. When you feel comfortable with the concepts execute the notebook code step by step taking care to understand the impact of each statement. 
 
-When you've completed Lab 1, please move on the [Lab 2](https:/lab2) . 
+When you've completed Lab 1, please move on [Lab 2: Introduction to Object2Vec](https://github.com/skrinak/recommendationEngine/tree/master/Lab2%20-%20Introduction%20to%20Object2Vec) . 
 
 ## Follow Up
 
-Consider how the data you work with every day might fit into these approaches. The real life experiences we've experienced at Amazon have led to some exciting innovations. We hope these labs accererate innovaction and discovery in your practice. 
+Matrix factorization is a simple approach that is valid for a large number of use cases and is frequently part of a pipeline of larger solutions. ObjectToVec is a powerful approach to datasets with a large number of features. 
+
+Of course there are many other ways to find similarities in your datasets and pair your customers with products. Participants are encouraged to explore shallow learning techniques such as [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html), [AgglomerativeClustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and [K-Means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) as well as the deep learning techniques presented here. 
+
+Consider how the data you work with every day might fit into these approaches. Your data is unique and you shouldn't expect to cut-and-paste solutions to your unique situations. Your unique data is the most precious asset in your company. Continuously explore that date, experiment with new features, augment your data with public datasets and perhaps even commercial data. 
+
+The real life experiences we've encountered at Amazon have led to some exciting innovations. We hope these labs accelerate innovation and discovery in your practice. 

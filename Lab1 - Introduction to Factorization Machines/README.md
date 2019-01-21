@@ -43,9 +43,9 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Notebook Instance](images/notebook-instance.jpg)
 
-    - Take note of the region in which you are running SageMaker. You'll need to recall this region when you create an S3 bucket in the next step. For this workshop we're using Oregon: ```us-west-2```.
+    - Take note of the region in which you are running SageMaker. You'll need to recall this region when you create an S3 bucket in the next step. For this workshop we're using Frankfurt: ```eu-central-1```.
     - Name the instance as ```rec-engine-workshop```.
-    - Choose instance type such as ```ml.m5.4xlarge```.
+    - Choose instance type such as ```ml.m5.4xlarge```. *Note: if your AWS account is less than 24-hours old you won't have permission to use this class of service. Please use the default: ml.t2.medium.*
     - Under IAM role choose "Create a new role"
             - Choose "Any S3 bucket"
             - Click "Create role" and take note of the newly created role.
@@ -56,7 +56,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     It takes about 3 minutes for a SageMaker notebook instance to provision. During this time you'll see the status *Pending*.
 
-1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's create an S3 bucket with a globally-unique name, such as: ```rec-engine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Oregon: ```us-west-2```.
+1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's create an S3 bucket with a globally-unique name, such as: ```rec-engine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Frankfurt: ```eu-central-1```.
 
     This bucket is necessary to store the training data and models you're creating in this workshop. Take note of the region. SageMaker must be run in the same region as your newly created S3 bucket. If for any reason you choose an alternate region simply ensure that SageMaker runs in the same region as your newly created bucket.
 
@@ -72,11 +72,10 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     - Use the search box to add ```S3FullAccess```. You do this by searching, clicking on the on the checkbox. 
     - After you have added the policy, click on Attach policy button.
 
-1. By now the
- notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
+1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
 
- 1. Go to the *recommendationEngine/Lab1 - Introduction to Factorization Machines* folder and open the notebook called, **MXNet_Deep_Matrix_Factorization.ipynbb**. Take a moment to read the instructions and examine the code before proceeding to the next steps.
+1. Go to [Lab 1: Introduction to Factorization Machines](MXNet_Deep_Matrix_Factorization.ipynb). Take a moment to read the instructions and examine the code before proceeding to the next steps.
 
  ## Congratulations!
 
-You've successfully created a recommendation engine using Deep Matrix Factorization. 
+You've successfully created a recommendation engine using Deep Matrix Factorization. Let's move now to [Lab 2: Introduction to Object2Vec](../Lab2%20-%20Introduction%20to%20Object2Vec)

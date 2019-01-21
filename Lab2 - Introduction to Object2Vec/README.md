@@ -109,7 +109,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     - Click on the **Create function** button.
     - Copy the code from [lambda_function_movie_retrieval.py](lambda_function_movie_retrieval.py) and paste it into Function code section of the newly created Lambda function. 
     - Create  environment variable with the following specifications:
-        - Key: **ENDPOINT_NANE**
+        - Key: **ENDPOINT_NAME**
         - Value: **recommendationModel**
 
 1. Set the **Basic settings with the following values:

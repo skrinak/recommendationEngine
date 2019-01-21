@@ -17,7 +17,11 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 1. Create a SageMaker lifecycle configuration
 
-    Login to the AWS Console and navigate to [SageMaker](https://console.aws.amazon.com/sagemaker/). You can find SageMaker in the Machine Learning section or using the search box at the top of the console. The SageMaker Dashboard contains links to all major components: Notebook, Training, and Inference. Second on the Notebook list is "Lifecycle configurations". Click on that link.
+    Login to the [AWS Console](https://aws.amazon.com/console/) and navigate to [SageMaker](https://console.aws.amazon.com/sagemaker/). You can find SageMaker in the Machine Learning section or using the search box at the top of the console. The SageMaker Dashboard contains links to all major components: Notebook, Training, and Inference. 
+    
+    For this workshop we'll be working out of Frankfurt: ```eu-central-1```. Take a look at the upper right hand corner of the console. That's where you'll see an indication of your current region. If you don't see Frankfurt, click on it now and select Frankfurt. You need to know the region you're working in whenever you use AWS.
+
+    The second item in the left-hand notebook navigation section is "Lifecycle configurations". Click on that link.
 
     Lifecycle configurations are startup scripts that initialize your Jupyter notebook environments. They can be run once on creation or on every notebook startup.
 
@@ -25,27 +29,28 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     Under "Scripts" click on "Create notebook".
 
-    Name the lifecycle configuration ```rec-engine-workshop-lc```. In the *Scripts* section click on **Create notebook**. Place your cursor on the line under the initial bash commands and paste the following:
+    Name the lifecycle configuration ```rec-engine-workshop-lc```. In the *Scripts* section click on **Create notebook**. Place your cursor on the line under the initial bash commands and paste the following under ```set -e```:
 
     ```
     cd SageMaker
     git clone https://github.com/skrinak/recommendationEngine.git
  
-    chown -R ec2-user.ec2-user Recommendation-Workshop/
+    chown -R ec2-user.ec2-user recommendationEngine
     ```
+
+    Click **Create Configuration**.
 
     The above commands do the following when the instance is created:
     - Download the code and necessary files from the workshop GitHub repo.
     - Organize the folder structure and place files in session folders.
     - Set write permission to the folders
 
-1. Click on "Notebook instances". Click on "Create notebook instance" to create a Jupyter notebook using the lifecycle configuration created inthe previous step.
+1. Click on "Notebook instances". Click on "Create notebook instance" to create a Jupyter notebook using the lifecycle configuration created in the previous step.
 
     ![Notebook Instance](images/notebook-instance.jpg)
 
-    - Take note of the region in which you are running SageMaker. You'll need to recall this region when you create an S3 bucket in the next step. For this workshop we're using Frankfurt: ```eu-central-1```.
     - Name the instance as ```rec-engine-workshop```.
-    - Choose instance type such as ```ml.m5.4xlarge```. *Note: if your AWS account is less than 24-hours old you won't have permission to use this class of service. Please use the default: ml.t2.medium.*
+    - Choose instance type such as ```ml.c5.4xlarge```. *Note: if your AWS account is less than 24-hours old you won't have permission to use this class of service. Please use the default: ml.t2.medium.*
     - Under IAM role choose "Create a new role"
             - Choose "Any S3 bucket"
             - Click "Create role" and take note of the newly created role.

@@ -15,35 +15,35 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 ## Steps
 
-1. If you have already completed Steps 1 through 5 from the "Lab 1 - Introduction to Factorization Machines" section of this workshop, please proceed to step 2. Otherwise, go to [Lab 1 - Introduction to Factorization Machines](../Lab1%20-%20Introduction%20to%20Factorization%20Machines) and complete the 5 steps required to setup SageMaker and add the required IAM roles and policies. Also, this workshop assumes all SageMaker instances and S3 buckets are in the Oregon region: us-west-2.
+1. If you have already completed Steps 1 through 3 from the "Lab 1 - Introduction to Factorization Machines" section of this workshop, please proceed to step 2 here. Otherwise, go to [Lab 1 - Introduction to Factorization Machines](../Lab1%20-%20Introduction%20to%20Factorization%20Machines) and complete the 3 steps required to setup SageMaker and your S3 buckets. Also, this workshop assumes all SageMaker instances and S3 buckets are in the Frankfurt region: ```eu-central-1```.
 
-1. Open the notebook, [object2vec_movie_recommendation.ipynb](object2vec_movie_recommendation.ipynb) in this directory. Read carefully about the theory, seek to understand, examine and run each cell. Then, return to these instructions. 
+1. Time to run the notebook. But, don't just hammer on shift-return: read carefully about the theory, seek to understand, examine and run each cell. Then, return to these instructions. 
 
-	Don't be alarmed by red log messages while training your model. SageMaker prints ordinary log messages in red. Wall time for training takes about 4 minutes per model. **Do not proceed to the nest step until the notebook has fully completed and each cell has run.**
+    * You may be asked to change the kernel when you open the notebook. Set it to conda_python3.
+    * The first code cell of the notebook requires you to set the bucket variable to the custom bucket name you created in the first lab. 
+	* Don't be alarmed by red log messages while training your model. SageMaker prints ordinary log messages in red. Wall time for training takes about 4 minutes per model. **Do not proceed to the next step until the notebook has fully completed and each cell has run.**
+    * Open the notebook, [object2vec_movie_recommendation.ipynb](object2vec_movie_recommendation.ipynb) in this directory and proceed. 
+	* When the notebook is completed successfully, go to the [SageMaker console](https://console.aws.amazon.com/sagemaker) and nagivate to **Models** as well as **Endpoints** sections to take a look at the models and endpoints created by the notebook.
 
-	When the notebook is completed successfully, go to the [SageMaker console](https://console.aws.amazon.com/sagemaker) and nagivate to **Models** as well as **Endpoints** sections to take a look at the models and enpoints created by the notebook.
-
-1. Go to the IAM console, let's create the Lambda execution role. This role is for our Lambda functions to have sufficient permissions to perform tasks such as getting objects from S3 and invoking an endpoint that is deployed in SageMaker.
+1. Go to the [IAM console](https://aws.amazon.com/console/). Let's create the Lambda execution role. This role is for our Lambda functions to have sufficient permissions to perform tasks such as getting objects from S3 and invoking an endpoint that is deployed in SageMaker. Click on "Roles" from the left navigation and then "Create Role".
 
      ![Lambda IAM](images/lambda-iam.jpg)
 
-    - Navigate to IAM in the AWS Console. From the left navigation click on "Roles". Click on "Create Role".
     - From the list of AWS Services choose: Lambda. Click on Next:Permissions.
-    - Use the search box to add ```S3FullAccess```, and ```AmazonSageMakerFullAccess``` individually. You do this by searching, clicking onthe on the checkbox, searching again, and selecting the next policy. Note that this is a highly permissive configuration that should not be used in production. It is only intended to facilitate learning in this workshop.
+    - Use the search box to add ```LambdaFullAccess```, ```S3FullAccess```, and ```AmazonSageMakerFullAccess``` individually. You do this by searching, clicking on the on the checkbox, searching again, and selecting the next policy. Note that this is a highly permissive configuration that should not be used in production. It is only intended to facilitate learning in this workshop.
     - After you have added all 3 policies click on Next:Tags, and then Next:Review.
-    - For Role Name use Lambda_ServerlessWorkshop_Role.
+    - For Role Name use ```Lambda_ServerlessWorkshop_Role```.
     - Click on Create role.
-    - Return to the SageMaker console.
 
 1. Go to the Lambda console and create a Lambda function that calls 2 endpoints that were deployed in the previous step. 
     - Enter the following values:
         - Name: **Recommendation_Engine_Object2Vec** 
         - Rumitime: **Python 3.6**
         - Role: **Choose an existing role**
-        - Existing role: Enter the Lambda Execution Role created in the previous step.
+        - Existing role: Enter ```Lambda_ServerlessWorkshop_Role``` as created in the previous step.
     - Click on the **Create function** button.
 
-1. Open [lambda_function_rec_engine.py](lambda_function_rec_engine.py) and paste the code into Function code section of the Lambda console. 
+1. Open [lambda_function_rec_engine.py](lambda_function_rec_engine.py) and paste the code into the "Function code" section of the Lambda console. 
 
     ![Lambda console1](images/lambda-console-1.jpg)
 
@@ -62,7 +62,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![SageMaker console](images/sageMaker-console-1.jpg)
 
-1. Create test event by selecting **Configure test event on the dropdown list next to **Test" button as shown in the following screenshot.
+1. Create test event by selecting "Configure test events" on the dropdown list next to the "Test" button as shown in the following screenshot.
 
     ![Lambda console3](images/lambda-console-3.jpg)
 
@@ -77,7 +77,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Lambda console4](images/lambda-console-4.jpg)
 
-1. Now test your function by clicking on the **Test** button. You should see the output like following. Test recommendation by passing ```"type": "recommendation"``` in your test event to see the movie recommendation, also.
+1. Now test your function by clicking on the **Test** button at the top of the console. You should see the output like following. Test recommendation by passing ```"type": "recommendation"``` in your test event to see the movie recommendation, also.
 
     ![Lambda console5](images/lambda-console-5.jpg)
 
@@ -85,11 +85,11 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
  Next, we will utilize the recommendation model to explore embeddings. We will retrieve a movie in the embedding space since Object2Vec transforms user and movie IDs into embeddings as part of training process. We expect that similar movies should be close-by in the embedding space. You will be creating another Lambda function to find a nearest-neighbor of a given movie ID calling the endpoint of recommendation model we developed in the previous steps. 
 
-1. First, we are going to transfer 2 dataset files to s3 bucket. Open Terminal on the SageMaker instance. See where to find the terminal in the following screenshot. 
+1. First, we are going to transfer 2 dataset files to our s3 bucket. Open a Terminal on the SageMaker instance. See where to find the terminal in the following screenshot. 
 
     ![SageMaker console4](images/notebook-instance4.jpg)
 
-    Run the following command. Make sure to replace ```your-bucket-name``` with the bucket you created in the previous steps.
+    Run the following command. Make sure to replace ```your-bucket-name``` with the bucket you created in the previous steps. *Note: you may recall ```rec-engine-workshop-yourname``` was a recommended bucket name*.
 
     ```
     cd SageMaker/recommendationEngine/Lab2\ -\ Introduction\ to\ Object2Vec/
@@ -103,7 +103,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     - Enter the following values:
         - Name: **Movie_Retrieval_Object2Vec** 
-        - Rumitime: **Python 3.6**
+        - Runtime: **Python 3.6**
         - Role: **Choose an existing role**
         - Existing role: Enter the Lambda Execution Role created in the previous step.
     - Click on the **Create function** button.
@@ -112,7 +112,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
         - Key: **ENDPOINT_NAME**
         - Value: **recommendationModel**
 
-1. Set the **Basic settings with the following values:
+1. Set the Basic settings with the following values:
 
     - Memory: **512 MB**
     - Timeout: **30 seconds**
@@ -129,7 +129,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Lambda layer1](images/lambda-layer-1.jpg)
 
-1. Fill in the following value to the consle:
+1. Fill in the following value to the console:
 
     - Name: **jsonlines**
     - Compatible runtime: **Python 3.6**
@@ -137,13 +137,13 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Lambda layer2](images/lambda-layer-2.jpg)
 
-    When the Layer is created, copy the ARN which looks ike this ```arn:aws:lambda:us-west-2:<your_account_number>:layer:jsonlines:1```
+    When the Layer is created, copy the ARN which looks something like this: ```arn:aws:lambda:us-west-2:<your_account_number>:layer:jsonlines:1```
 
 1. After the one layer creation, go back to the Movie_Retrieval_Object2Vec function. Click on the **Layers** icon shown in the following screenshot:
 
     ![Lambda layer3](images/lambda-layer-3.jpg)
 
-    It wil bring up the following **Referenced layers** pane. Click on **Add a layer** button.
+    This will bring up the following **Referenced layers** pane. Click on **Add a layer** button.
 
     ![Lambda layer4](images/lambda-layer-4.jpg)
 
@@ -179,3 +179,7 @@ After you have completed the workshop you can delete all of the resources that w
 1. Delete the SageMaker notebook instance.
 1. Delete the S3 Buckets you created. 
 
+## Personalize
+Amazon recently announced [Amazon Personalize](https://aws.amazon.com/personalize/), a machine learning service that makes it easy for developers to create individualized recommendations at scale. This service handles the majority of tasks we've just completed by hand. Before embarking on developing your own solutions from scratch it is well worth the time investment to see if Personalize has already solved this problem for you. 
+
+A compact end-to-end demo of the same kind of recommendation engine we've built here today can be found here: 

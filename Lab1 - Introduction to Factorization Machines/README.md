@@ -65,18 +65,6 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     This bucket is necessary to store the training data and models you're creating in this workshop. Take note of the region. SageMaker must be run in the same region as your newly created S3 bucket. If for any reason you choose an alternate region simply ensure that SageMaker runs in the same region as your newly created bucket.
 
-1. Setup an IAM role and attach policy
-
-    We need to add rights to our newly-created SageMaker role.  We'll be using a policy called ```S3FullAccess```. The permission is required in the notebook as we will be uploading objects to S3. *Note: These are highly permissive settings which are suitable for this workshop, however, far too broad for commercial production.*
-
-    ![SageMaker IAM](images/sagemaker-iam.jpg)
-
-    - Navigate to IAM in the AWS Console. From the left navigation click on "Roles".
-    - On the seach box, type ```SageMaker```. The name of the role looks like ```AmazonSageMaker-ExecutionRole-20181022T083494```
-    - On the Summary page, click on the Attach policies button.
-    - Use the search box to add ```S3FullAccess```. You do this by searching, clicking on the on the checkbox. 
-    - After you have added the policy, click on Attach policy button.
-
 1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". 
 
 1. Go to [Lab 1: Introduction to Factorization Machines](MXNet_Deep_Matrix_Factorization.ipynb). Take a moment to read the instructions and examine the code before proceeding to the next steps.

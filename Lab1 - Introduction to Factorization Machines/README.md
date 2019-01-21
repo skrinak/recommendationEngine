@@ -29,7 +29,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ```
     cd SageMaker
-    git clone https://github.com/aws-samples/recommendation-engine-workshop.git
+    git clone https://github.com/skrinak/recommendationEngine.git
 
     mkdir Recommendation-Workshop
     mv recommendation-engine-workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/ Recommendation-Workshop

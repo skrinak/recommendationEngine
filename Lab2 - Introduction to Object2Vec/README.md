@@ -182,4 +182,4 @@ After you have completed the workshop you can delete all of the resources that w
 ## Personalize
 Amazon recently announced [Amazon Personalize](https://aws.amazon.com/personalize/), a machine learning service that makes it easy for developers to create individualized recommendations at scale. This service handles the majority of tasks we've just completed by hand. Before embarking on developing your own solutions from scratch it is well worth the time investment to see if Personalize has already solved this problem for you. 
 
-A compact end-to-end demo of the same kind of recommendation engine we've built here today can be found here: 
+A compact end-to-end demo of the same kind of recommendation engine we've built here today can be found here: <a href="http://www.personalisevideorecs.info/recommend/" target="_blank">Amazon Personalize Video Recommendations</a>

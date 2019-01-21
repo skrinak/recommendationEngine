@@ -171,6 +171,5 @@ After you have completed the workshop you can delete all of the resources that w
 
 ## Personalize
 
-[AWS Personalize](https://aws.amazon.com/personalize/) is an AWS managed service that performs a lot of the work you've performed here for you. It's often the perfect solution to your recommendation problems. Please take quick a look at a simple implementation of the MovieLens dataset recommender using this exciting new service: 
+<a href="https://aws.amazon.com/personalize/" target="_blank">AWS Personalize</a> is an AWS managed service that performs a lot of the work you've performed here for you. It's often the perfect solution to your recommendation problems. Please take quick a look at a simple implementation of the MovieLens dataset recommender using this exciting new service: <a href="http://www.personalisevideorecs.info/recommend/" target="_blank">AWS Personalize Video Recommendations</a>
 
-[AWS Personalize Video Recommendations](http://www.personalisevideorecs.info/recommend/)

@@ -107,3 +107,9 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
 
 1. Open the [MXNet Deep Matrix Factorization Notebook](MXNet_Deep_Matrix_Factorization.ipynb) Take your time and read the theoretical descriptions and examine the code before proceeding to the next steps.
+
+1. Now move on to [Lab 2: Introduction to Object2Vec]("../Lab2 - Introduction to Object2Vec/README.md"). 
+
+## Clean Up!
+**If you are not moving on the Lab 2** please clean up to avoid unnecessary charges. Cleanup instructions are found at the end of [Lab 2: Introduction to Object2Vec]("../Lab2 - Introduction to Object2Vec/README.md"). 
+

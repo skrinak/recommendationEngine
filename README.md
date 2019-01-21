@@ -36,6 +36,8 @@ When you've completed Lab 1, please move on [Lab 2: Introduction to Object2Vec](
 
 ## Follow Up
 
+Dont' leave this workshop without cleaning up! There are detailed instructions at the end of [Lab 2: Introduction to Object2Vec]("../Lab2 - Introduction to Object2Vec/README.md")
+
 Matrix factorization is a simple approach that is valid for a large number of use cases and is frequently part of a pipeline of larger solutions. ObjectToVec is a powerful approach to datasets with a large number of features. 
 
 Of course there are many other ways to find similarities in your datasets and pair your customers with products. Participants are encouraged to explore shallow learning techniques such as [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html), [AgglomerativeClustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and [K-Means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) as well as the deep learning techniques presented here. 

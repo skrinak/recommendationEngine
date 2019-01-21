@@ -30,34 +30,14 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     ```
     cd SageMaker
     git clone https://github.com/skrinak/recommendationEngine.git
-
-    mkdir Recommendation-Workshop
-    mv recommendation-engine-workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/ Recommendation-Workshop
-    mv recommendation-engine-workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/ Recommendation-Workshop
-    mkdir Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/LambdaPackage
-    mkdir Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/LambdaPackage
-    mv Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/lambda_function.py Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/LambdaPackage/
-    mv Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/lambda_function.py Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/LambdaPackage/
-
+ 
     chown -R ec2-user.ec2-user Recommendation-Workshop/
-    rm -rf recommendation-engine-workshop
-
-    wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-16.02-10.el7.x86_64.rpm
-    wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-plugins-16.02-10.el7.x86_64.rpm
-
-    rpm -U --quiet p7zip-16.02-10.el7.x86_64.rpm
-    rpm -U --quiet p7zip-plugins-16.02-10.el7.x86_64.rpm
-
-    rm p7zip-16.02-10.el7.x86_64.rpm
-    rm p7zip-plugins-16.02-10.el7.x86_64.rpm
-
     ```
 
     The above commands do the following when the instance is created:
     - Download the code and necessary files from the workshop GitHub repo.
     - Organize the folder structure and place files in session folders.
     - Set write permission to the folders
-    - Install 7-Zip which is required to compress lambda packages to their smallest size
 
 1. Click on "Notebook instances". Click on "Create notebook instance" to create a Jupyter notebook using the lifecycle configuration created inthe previous step.
 
@@ -80,36 +60,23 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     This bucket is necessary to store the training data and models you're creating in this workshop. Take note of the region. SageMaker must be run in the same region as your newly created S3 bucket. If for any reason you choose an alternate region simply ensure that SageMaker runs in the same region as your newly created bucket.
 
-1. Setup IAM roles and attach policies
+1. Setup an IAM role and attach policy
 
-    We need to add rights to our newly-created SageMaker role and create a new role for Lambda functions that will invoke model endpoints.  We'll be using 2 policies, ```LambdaFullAccess```, and ```S3FullAccess```. These permissions are required in the notebook as we will be uploading objects to S3 and creatingLambda functions. *Note: These are highly permissive settings which are suitable for this workshop, however, far too broad for commercial production.*
+    We need to add rights to our newly-created SageMaker role.  We'll be using a policy called ```S3FullAccess```. The permission is required in the notebook as we will be uploading objects to S3. *Note: These are highly permissive settings which are suitable for this workshop, however, far too broad for commercial production.*
 
     ![SageMaker IAM](images/sagemaker-iam.jpg)
 
     - Navigate to IAM in the AWS Console. From the left navigation click on "Roles".
     - On the seach box, type ```SageMaker```. The name of the role looks like ```AmazonSageMaker-ExecutionRole-20181022T083494```
     - On the Summary page, click on the Attach policies button.
-    - Use the search box to add ```LambdaFullAccess```, ```S3FullAccess``` individually. You do this by searching, clicking on the on the checkbox, searching again, and selecting the next policy. Your checkbox selections persist through multiple searches.
-    - After you have added both policies click on Attach policy button.
+    - Use the search box to add ```S3FullAccess```. You do this by searching, clicking on the on the checkbox. 
+    - After you have added the policy, click on Attach policy button.
 
-1. While we are on the IAM console, let's create the Lambda execution role. This role is for our Lambda functions to have sufficient permissions to perform tasks such as getting objects from S3 and invoking an endpoint that is deployed in SageMaker.
+1. By now the
+ notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
 
-     ![Lambda IAM](images/lambda-iam.jpg)
+ 1. Go to the *recommendationEngine/Lab1 - Introduction to Factorization Machines* folder and open the notebook called, **MXNet_Deep_Matrix_Factorization.ipynbb**. Take a moment to read the instructions and examine the code before proceeding to the next steps.
 
-    - Navigate to IAM in the AWS Console. From the left navigation click on "Roles". Click on "Create Role".
-    - From the list of AWS Services choose: Lambda. Click on Next:Permissions.
-    - Use the search box to add ```S3FullAccess```, and ```AmazonSageMakerFullAccess``` individually. You do this by searching, clicking onthe on the checkbox, searching again, and selecting the next policy. Note that this is a highly permissive configuration that should not be used in production. It is only intended to facilitate learning in this workshop.
-    - After you have added all 3 policies click on Next:Tags, and then Next:Review.
-    - For Role Name use Lambda_ServerlessWorkshop_Role.
-    - Click on Create role.
-    - Return to the SageMaker console.
+ ## Congratulations!
 
-1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". Take moment to browse the folder structures created.
-
-1. Open the [MXNet Deep Matrix Factorization Notebook](MXNet_Deep_Matrix_Factorization.ipynb) Take your time and read the theoretical descriptions and examine the code before proceeding to the next steps.
-
-1. Now move on to [Lab 2: Introduction to Object2Vec](../Lab2%20-%20Introduction%20to%20Object2Vec). 
-
-## Clean Up!
-**If you are not moving on the Lab 2** please clean up to avoid unnecessary charges. Cleanup instructions are found at the end of [Lab 2: Introduction to Object2Vec](../Lab2%20-%20Introduction%20to%20Object2Vec). 
-
+You've successfully created a recommendation engine using Deep Matrix Factorization. 

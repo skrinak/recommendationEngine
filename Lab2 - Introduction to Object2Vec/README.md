@@ -15,7 +15,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 ## Steps
 
-1. If you have already completed Steps 1 through 3 from the "Lab 1 - Introduction to Factorization Machines" section of this workshop, please proceed to step 2 here. Otherwise, go to [Lab 1 - Introduction to Factorization Machines](../Lab1%20-%20Introduction%20to%20Factorization%20Machines) and complete the 3 steps required to setup SageMaker and your S3 buckets. Also, this workshop assumes all SageMaker instances and S3 buckets are in the Frankfurt region: ```eu-central-1```.
+1. If you have already completed Steps 1 through 3 from "Lab 1" of this workshop, please proceed to step 2 here. Otherwise, go to [Lab 1 - Introduction to Factorization Machines](../Lab1%20-%20Introduction%20to%20Factorization%20Machines) and complete the 3 steps required to setup SageMaker and your S3 buckets. Also, this workshop assumes all SageMaker instances and S3 buckets are in the Frankfurt region: ```eu-central-1```.
 
 1. Time to run the notebook. But, don't just hammer on shift-return: read carefully about the theory, seek to understand, examine and run each cell. Then, return to these instructions. 
 

@@ -32,15 +32,15 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     git clone https://github.com/skrinak/recommendationEngine.git
 
     mkdir Recommendation-Workshop
-    mv recommendation-engine-workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/ Recommendation-Workshop
-    mv recommendation-engine-workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/ Recommendation-Workshop
-    mkdir Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/LambdaPackage
-    mkdir Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/LambdaPackage
-    mv Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/lambda_function.py Recommendation-Workshop/Lab\ 1\ -\ Introduction\ to\ Factorization\ Machine/LambdaPackage/
-    mv Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/lambda_function.py Recommendation-Workshop/Lab\ 2\ -\ Introduction\ to\ Object2Vec/LambdaPackage/
+    mv recommendationEngine/Lab1\ -\ Introduction\ to\ Factorization\ Machines/ Recommendation-Workshop
+    mv recommendationEngine/Lab2\ -\ Introduction\ to\ Object2Vec/ Recommendation-Workshop
+    mkdir Recommendation-Workshop/Lab1\ -\ Introduction\ to\ Factorization\ Machines/LambdaPackage
+    mkdir Recommendation-Workshop/Lab2\ -\ Introduction\ to\ Object2Vec/LambdaPackage
+    mv Recommendation-Workshop/Lab1\ -\ Introduction\ to\ Factorization\ Machines/lambda_function.py Recommendation-Workshop/Lab1\ -\ Introduction\ to\ Factorization\ Machines/LambdaPackage/
+    mv Recommendation-Workshop/Lab2\ -\ Introduction\ to\ Object2Vec/lambda_function.py Recommendation-Workshop/Lab2\ -\ Introduction\ to\ Object2Vec/LambdaPackage/
 
     chown -R ec2-user.ec2-user Recommendation-Workshop/
-    rm -rf recommendation-engine-workshop
+    rm -rf recommendationEngine
 
     wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-16.02-10.el7.x86_64.rpm
     wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-plugins-16.02-10.el7.x86_64.rpm

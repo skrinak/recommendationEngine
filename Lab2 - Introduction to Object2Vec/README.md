@@ -52,10 +52,10 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     ![Lambda console2](images/lambda-console-2.jpg)
 
     - The first environment variable with the following specifications:
-        - Key: **ENDPOINT_NANE_RATING**
+        - Key: **ENDPOINT_NAME_RATING**
         - Value: **ratingModel** 
     - The second environment variable with the following specifications:
-        - Key: **ENDPOINT_NANE_REC**
+        - Key: **ENDPOINT_NAME_REC**
         - Value: **recommendationModel**
     
     You can find name of your model endpoints on SageMaker console under **Inference** -> **Endpoints** as shown in the following screenshot. Alternatively, you can find them on the notebook you ran to create them. How to know which model is for rating and which for recommendation? Look at the time stamp. Rating model is created first so the date stamp should be earlier for the rating model. 
@@ -109,8 +109,8 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
     - Click on the **Create function** button.
     - Copy the code from [lambda_function_movie_retrieval.py](lambda_function_movie_retrieval.py) and paste it into Function code section of the newly created Lambda function. 
     - Create  environment variable with the following specifications:
-        - Key: **ENDPOINT_NANE**
-        - Value: **ratingModel**
+        - Key: **ENDPOINT_NAME**
+        - Value: **recommendationModel**
 
 1. Set the **Basic settings with the following values:
 

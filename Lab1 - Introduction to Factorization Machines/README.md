@@ -19,7 +19,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     Login to the [AWS Console](https://aws.amazon.com/console/) and navigate to [SageMaker](https://console.aws.amazon.com/sagemaker/). You can find SageMaker in the Machine Learning section or using the search box at the top of the console. The SageMaker Dashboard contains links to all major components: Notebook, Training, and Inference. 
     
-    For this workshop we'll be working out of Frankfurt: ```eu-central-1```. Take a look at the upper right hand corner of the console. That's where you'll see an indication of your current region. If you don't see Frankfurt, click on it now and select Frankfurt. You need to know the region you're working in whenever you use AWS.
+    For this workshop we'll be working out of the AWS Ireland region. Take a look at the upper right hand corner of the console. That's where you'll see an indication of your current region. If you don't see Ireland, click on it now and select EU(Ireland). You need to know the region you're working in whenever you use AWS.
 
     The second item in the left-hand notebook navigation section is "Lifecycle configurations". Click on that link.
 
@@ -61,7 +61,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     It takes about 3 minutes for a SageMaker notebook instance to provision. During this time you'll see the status *Pending*.
 
-1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's create an S3 bucket with a globally-unique name, such as: ```rec-engine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Frankfurt: ```eu-central-1```.
+1. Navigate to [S3](https://console.aws.amazon.com/s3) on the AWS Console. While we're waiting for the notebook to be provisioned, let's create an S3 bucket with a globally-unique name, such as: ```rec-engine-workshop-yourname```. Take care to choose the same region for your bucket as your SageMaker notebook. For this workshop we're using Ireland.
 
     This bucket is necessary to store the training data and models you're creating in this workshop. Take note of the region. SageMaker must be run in the same region as your newly created S3 bucket. If for any reason you choose an alternate region simply ensure that SageMaker runs in the same region as your newly created bucket.
 

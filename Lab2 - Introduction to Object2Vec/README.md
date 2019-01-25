@@ -81,22 +81,24 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     ![Lambda console5](images/lambda-console-5.jpg)
 
-## Movie retrieval in the embedding space
+## Movie retrieval in the embedding space *(Optional)*
 
- Next, we will utilize the recommendation model to explore embeddings. We will retrieve a movie in the embedding space since Object2Vec transforms user and movie IDs into embeddings as part of training process. We expect that similar movies should be close-by in the embedding space. You will be creating another Lambda function to find a nearest-neighbor of a given movie ID calling the endpoint of recommendation model we developed in the previous steps. 
+ Time permitting, let's utilize the recommendation model to explore embeddings. We will retrieve a movie in the embedding space since Object2Vec transforms user and movie IDs into embeddings as part of training process. We expect that similar movies should be close-by in the embedding space. You will be creating another Lambda function to find a nearest-neighbor of a given movie ID calling the endpoint of recommendation model we developed in the previous steps. 
 
 1. First, we are going to transfer 2 dataset files to our s3 bucket. Open a Terminal on the SageMaker instance. See where to find the terminal in the following screenshot. 
 
     ![SageMaker console4](images/notebook-instance4.jpg)
 
-    Run the following command. Make sure to replace ```your-bucket-name``` with the bucket you created in the previous steps. *Note: you may recall ```rec-engine-workshop-yourname``` was a recommended bucket name*.
+    Run the following command. Make sure to replace 
+    * ```your-bucket-name``` with the bucket you created in the previous steps. *Note: you may recall ```rec-engine-workshop-yourname``` was a recommended bucket name*.
+    * ```your-region``` with the region in which your data resides. 
 
     ```
     cd SageMaker/recommendationEngine/Lab2\ -\ Introduction\ to\ Object2Vec/
 
-    aws s3api put-object --bucket your-bucket-name --key object2vec/movielens/ml-100k/ua.base --body ml-100k/ua.base --region us-west-2
-
-    aws s3api put-object --bucket your-bucket-name --key object2vec/movielens/ml-100k/u.item --body ml-100k/u.item --region us-west-2
+    aws s3api put-object --bucket your-bucket-name --key object2vec/movielens/ml-100k/ua.base --body ml-100k/ua.base --region your-region
+    
+    aws s3api put-object --bucket your-bucket-name --key object2vec/movielens/ml-100k/u.item --body ml-100k/u.item --region your-region
     ```
 
 1. Next we will go back to the Lambda console and repeat the step 4 this time with the following specification:

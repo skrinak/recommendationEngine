@@ -67,7 +67,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 1. By now the notebook instance is ready, open the instance by clicking "Open Jupyter". 
 
-1. Go to [Lab 1: Introduction to Factorization Machines](MXNet_Deep_Matrix_Factorization.ipynb). Take a moment to read the instructions and examine the code before proceeding to the next steps.
+1. Go to [MXNet_Deep_Matrix_Factorization.ipynb](MXNet_Deep_Matrix_Factorization.ipynb). Take a moment to read the instructions and examine the code before proceeding to the next steps.
 
  ## Congratulations!
 

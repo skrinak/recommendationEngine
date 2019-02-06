@@ -172,7 +172,7 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 ## Congratulations!
 
-You've successfully created a recommendation engine using SageMaker's built-in algorithm, Object2Vec. You developed 2 Lambda functions to test the models. This method can apply to recommendation other than movies. After you clean up return to the top level of this repo for [next steps](..). 
+You've successfully created a recommendation engine using SageMaker's built-in algorithm, Object2Vec. You developed 2 Lambda functions to test the models. This method can apply to recommendation other than movies. After you clean up return to the top level of this repo for [next steps](https://github.com/skrinak/recommendationEngine). 
 
 ## Cleanup
 After you have completed the workshop you can delete all of the resources that were created in the following order.

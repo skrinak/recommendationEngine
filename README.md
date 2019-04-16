@@ -1,6 +1,6 @@
 # Recommendation Engines
 
-This workshop introduces you to two different approaches for developing a recommendation engines. Recommendation engines are widely used machine learning solutions that find items that someone will like based on the past behavior, such as purchasing history. We're all familiar with Netflix recommending movies based on your viewing history and the ratings you've given to other movies. For the first approach, we will delve into how to build these recommender systems by implementing a matrix factorization technique with Apache MXNet. In the second approach, we will utilize SageMaker's built-in algorithm, Object2Vec. For both models, we will be using the MovieLens dataset to build our representation upon.
+This workshop introduces you to two different approaches for developing recommendation engines. Recommendation engines are widely used machine learning solutions that find items that someone will like based on the past behavior, such as purchasing history. We're all familiar with Netflix recommending movies based on your viewing history and the ratings you've given to other movies. For the first approach, we will delve into how to build these recommender systems by implementing a matrix factorization technique with Apache MXNet. In the second approach, we will utilize SageMaker's built-in algorithm, Object2Vec. For both models, we will be using the MovieLens dataset to build our representation upon.
 
 ## Approach 1: Implementing Deep Matrix Factorization
 

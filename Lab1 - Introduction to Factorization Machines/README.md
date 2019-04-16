@@ -17,12 +17,14 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
 1. Create a SageMaker lifecycle configuration
 
-    Login to the [AWS Console](https://aws.amazon.com/console/) and navigate to [SageMaker](https://console.aws.amazon.com/sagemaker/). You can find SageMaker in the Machine Learning section or using the search box at the top of the console. The SageMaker Dashboard contains links to all major components: Notebook, Training, and Inference. 
+    Login to the [AWS Console](https://aws.amazon.com/console/) and navigate to [SageMaker](https://console.aws.amazon.com/sagemaker/). You can find SageMaker in the Machine Learning section or using the search box at the top of the console. The SageMaker Dashboard contains links to all major components: Labelling (Ground Truth), Notebooks, Training, and Inference. 
     
-    For this workshop we'll be working out of the AWS Ireland region. Take a look at the upper right hand corner of the console. That's where you'll see an indication of your current region. If you don't see Ireland, click on it now and select EU(Ireland). You need to know the region you're working in whenever you use AWS.
+    ## Region
+    Take a look at the upper right hand corner of the console. That's where you'll see an indication of your current region. You need to know the region you're working in whenever you use SageMaker as you need to match your SageMaker instance region with the region of any S3 bucket where you're storing your training data.
 
     The second item in the left-hand notebook navigation section is "Lifecycle configurations". Click on that link.
 
+    ## Lifecycle configuration
     Lifecycle configurations are startup scripts that initialize your Jupyter notebook environments. They can be run once on creation or on every notebook startup.
 
     Click on the orange button labelled "Create Configuration".
@@ -51,12 +53,14 @@ We recommend you use the latest version of Firefox or Chrome to complete this wo
 
     - Name the instance as ```rec-engine-workshop```.
     - Choose instance type such as ```ml.c5.4xlarge```. *Note: if your AWS account is less than 24-hours old you won't have permission to use this class of service. Please use the default: ml.t2.medium.*
+    - Click on the arrow by ```Additional configuration```
+    - Choose lifecycle configuration, ```rec-engine-workshop-lc```
     - Under IAM role choose "Create a new role"
             - Choose "Any S3 bucket"
             - Click "Create role" and take note of the newly created role.
-    - No VPC
-    - Choose lifecycle configuration, ```rec-engine-workshop-lc```
-    - No Custom Encryption
+    - You can leave the rest of the settings at their default
+        - No VPC
+        - No Custom Encryption
     - Click on **Create notebook instance**.
 
     It takes about 3 minutes for a SageMaker notebook instance to provision. During this time you'll see the status *Pending*.

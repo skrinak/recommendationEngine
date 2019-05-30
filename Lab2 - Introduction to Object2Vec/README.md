@@ -180,6 +180,7 @@ After you have completed the workshop you can delete all of the resources that w
 1. Stop the SageMaker notebook instance.
 1. Delete the SageMaker notebook instance.
 1. Delete the S3 Buckets you created. 
+1. Delete the Lambda function you created.
 
 ## Personalize
 Amazon recently announced [Amazon Personalize](https://aws.amazon.com/personalize/), a machine learning service that makes it easy for developers to create individualized recommendations at scale. This service handles the majority of tasks we've just completed by hand. Before embarking on developing your own solutions from scratch it is well worth the time investment to see if Personalize has already solved this problem for you. 
